@@ -21,24 +21,22 @@
             <div class="campos">
                 <mat-form-field appearance="outline">
                     <mat-label>Preço</mat-label>
-                    <input matInput placeholder="Título do jogo">
+                    <input matInput placeholder="Preço do jogo">
                 </mat-form-field>
             </div>
 
             <div class="campos">
                 <mat-form-field appearance="outline">
                     <mat-label>Preço com desconto</mat-label>
-                    <input matInput placeholder="Peeço com deaconto">
+                    <input matInput placeholder="Preço com desconto">
                 </mat-form-field>
             </div>
 
             <div class="campos">
-                <mat-form-field appearance="outline" *ngFor="let loja of lojas">
+                <mat-form-field appearance="outline">
                     <mat-label>Loja</mat-label>
                     <mat-select>
-                        <mat-option value="5">{{loja}}</mat-option>
-                        <mat-option value="2">{{loja}}</mat-option>
-                        <mat-option value="7">{{loja}}</mat-option>
+                        <mat-option *ngFor="let loja of lojas" [value]="loja.id">{{loja.nome}}</mat-option>
                     </mat-select>
                 </mat-form-field>
             </div>
@@ -47,7 +45,7 @@
             <div class="campos">
                 <mat-form-field appearance="outline">
                     <mat-label>Descrição</mat-label>
-                    <input matInput placeholder="">
+                    <input matInput placeholder="Descrição">
                 </mat-form-field>
             </div>
 
