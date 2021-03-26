@@ -37,11 +37,12 @@ export class CadastroOfertasComponent implements OnInit {
 
     let ofertas = JSON.parse(window.localStorage.getItem("ofertas-game-tracker"));
 
+    if(ofertas.length > 0) {
+
+      let ofertaFiltrada = ofertas.filter(oferta => oferta.id === this.ofertaId);
+    }
+
     console.log(ofertas)
-
-    let ofertaFiltrada = ofertas.filter(oferta => oferta.id === this.ofertaId);
-
-    console.log(ofertaFiltrada)
   }
 
   
