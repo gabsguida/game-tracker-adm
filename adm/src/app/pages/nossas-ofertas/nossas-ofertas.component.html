@@ -1,6 +1,11 @@
 <section>
     <div class="container">
-        <h2>Nossas Ofertas</h2>
+        <div class="container-title">
+            <h2>Nossas Ofertas</h2>
+    
+            <button mat-raised-button color="primary" (click)="irParaCadastroOfertas(0)">
+                <span class="material-icons">add_circle_outline</span>Nova oferta</button>
+        </div>
 
         <table mat-table [dataSource]="dataSource">
 
@@ -22,6 +27,16 @@
             <ng-container matColumnDef="precoDesconto">
                 <th mat-header-cell *matHeaderCellDef> Preço Desconto </th>
                 <td mat-cell *matCellDef="let element"> {{ element.precoDesconto }} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="loja">
+                <th mat-header-cell *matHeaderCellDef> Loja </th>
+                <td mat-cell *matCellDef="let element"> {{ element.loja }} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="descricao">
+                <th mat-header-cell *matHeaderCellDef> Descrição </th>
+                <td mat-cell *matCellDef="let element"> {{ element.descricao }} </td>
             </ng-container>
 
             

@@ -2,11 +2,11 @@
     <div class="container">
         <h2>Cadastro de Ofertas</h2>
 
-        <div class="grid">
+        <div class="grid" [formGroup]="novaOfertaForm">
             <div class="campos">
                 <mat-form-field appearance="outline">
                     <mat-label>ID</mat-label>
-                    <input matInput placeholder="ID do jogo">
+                    <input matInput placeholder="ID do jogo" formControlName="id" />
                 </mat-form-field>
             </div>
 
@@ -14,21 +14,21 @@
             <div class="campos">
                 <mat-form-field appearance="outline">
                     <mat-label>Título</mat-label>
-                    <input matInput placeholder="Título do jogo">
+                    <input matInput placeholder="Título do jogo" formControlName="titulo" />
                 </mat-form-field>
             </div>
 
             <div class="campos">
                 <mat-form-field appearance="outline">
                     <mat-label>Preço</mat-label>
-                    <input matInput placeholder="Preço do jogo">
+                    <input matInput placeholder="Preço do jogo" formControlName="preco" />
                 </mat-form-field>
             </div>
 
             <div class="campos">
                 <mat-form-field appearance="outline">
                     <mat-label>Preço com desconto</mat-label>
-                    <input matInput placeholder="Preço com desconto">
+                    <input matInput placeholder="Preço com desconto" formControlName="precoDesconto" />
                 </mat-form-field>
             </div>
 

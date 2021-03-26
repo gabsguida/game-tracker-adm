@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 
 export class NossasOfertasComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'titulo', 'preco', 'precoDesconto', 'editarOferta'];
+  displayedColumns: string[] = ['id', 'titulo', 'preco', 'precoDesconto', 'loja', 'descricao', 'editarOferta', ];
   dataSource;
 
   constructor(private router: Router) { }

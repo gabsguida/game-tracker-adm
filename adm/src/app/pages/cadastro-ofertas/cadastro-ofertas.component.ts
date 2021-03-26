@@ -17,7 +17,7 @@ export class CadastroOfertasComponent implements OnInit {
     { id: 3, nome: 'Steam' },
   ];
 
-  ofertaId: string;
+  ofertaId: number;
 
   constructor(private fb: FormBuilder, private activatedRoute: ActivatedRoute) { }
 
@@ -33,16 +33,19 @@ export class CadastroOfertasComponent implements OnInit {
   }
 
   obterOfertaPorQueryParams() {
-    this.ofertaId = this.activatedRoute.snapshot.params.id;
+    this.ofertaId = parseFloat(this.activatedRoute.snapshot.params.id);
 
     let ofertas = JSON.parse(window.localStorage.getItem("ofertas-game-tracker"));
 
-    if(ofertas.length > 0) {
-
-      let ofertaFiltrada = ofertas.filter(oferta => oferta.id === this.ofertaId);
+    if(this.ofertaId != 0 && this.ofertaId != undefined) {
+      let ofertaFiltrada = ofertas.filter(oferta => oferta.id === this.ofertaId)[0];
+      this.novaOfertaForm.setValue({
+        id: ofertaFiltrada.id,
+        titulo: ofertaFiltrada.titulo,
+        preco: ofertaFiltrada.preco,
+        precoDesconto: ofertaFiltrada.precoDesconto
+      })
     }
-
-    console.log(ofertas)
   }
 
   
