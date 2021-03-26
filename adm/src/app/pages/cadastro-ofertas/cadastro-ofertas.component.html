@@ -33,10 +33,11 @@
             </div>
 
             <div class="campos">
-                <mat-form-field appearance="outline">
+                <mat-form-field appearance="outline" >
                     <mat-label>Loja</mat-label>
-                    <mat-select>
-                        <mat-option *ngFor="let loja of lojas" [value]="loja.id">{{loja.nome}}</mat-option>
+                    <mat-select  formControlName="loja">
+                        <mat-option *ngFor="let loja of lojas" [value]="loja.id">
+                            {{loja.nome}}</mat-option>
                     </mat-select>
                 </mat-form-field>
             </div>
@@ -45,7 +46,7 @@
             <div class="campos">
                 <mat-form-field appearance="outline">
                     <mat-label>Descrição</mat-label>
-                    <input matInput placeholder="Descrição">
+                    <input matInput placeholder="Descrição" formControlName="descricao" />
                 </mat-form-field>
             </div>
 

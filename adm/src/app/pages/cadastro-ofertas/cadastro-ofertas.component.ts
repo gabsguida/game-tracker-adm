@@ -26,7 +26,9 @@ export class CadastroOfertasComponent implements OnInit {
       id: [''],
       titulo: [''],
       preco: [''],
-      precoDesconto: ['']
+      precoDesconto: [''],
+      descricao: [''],
+      loja: ['']
     });
 
     this.obterOfertaPorQueryParams();
@@ -43,7 +45,9 @@ export class CadastroOfertasComponent implements OnInit {
         id: ofertaFiltrada.id,
         titulo: ofertaFiltrada.titulo,
         preco: ofertaFiltrada.preco,
-        precoDesconto: ofertaFiltrada.precoDesconto
+        precoDesconto: ofertaFiltrada.precoDesconto,
+        descricao: ofertaFiltrada.descricao ?? '',
+        loja: ofertaFiltrada.loja ?? ''
       })
     }
   }
