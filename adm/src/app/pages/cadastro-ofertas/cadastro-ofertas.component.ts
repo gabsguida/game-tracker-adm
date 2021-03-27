@@ -66,15 +66,15 @@ export class CadastroOfertasComponent implements OnInit {
   }
 
 
-  hasError(formGroup: FormGroup, formName: string, message?: string, invalidMessage?: string) {
+  hasError(formGroup: FormGroup, formName: string) {
     let controls = formGroup.get(formName);
     if (controls.errors != null) {
       switch (true) {
         case controls.errors['required'] && (controls.dirty || controls.touched): {
-          return message ? message : "Campo obrigatório"
+          return "Campo obrigatório"
         }
         case (controls.errors['email'] || controls.errors['mask']) && (controls.dirty || controls.touched): {
-          return invalidMessage ? invalidMessage : "Campo inválido"
+          return "Campo inválido"
         }
         case (controls.errors['idInvalid'] && (controls.dirty || controls.touched)):
           return 'Id existente, por favor, insira outro id!'
