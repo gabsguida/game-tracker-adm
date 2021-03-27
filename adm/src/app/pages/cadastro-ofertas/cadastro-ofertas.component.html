@@ -27,7 +27,7 @@
             <div class="campos">
                 <mat-form-field appearance="outline">
                     <mat-label>Preço</mat-label>
-                    <input matInput type="text" placeholder="Preço do jogo" formControlName="preco"  />
+                    <input matInput type="text" placeholder="Preço do jogo" formControlName="preco" />
                     <div>
                         <span class="hasError">{{ hasError(novaOfertaForm, 'preco') }}</span>
                     </div>
@@ -37,7 +37,7 @@
             <div class="campos">
                 <mat-form-field appearance="outline">
                     <mat-label>Preço com desconto</mat-label>
-                    <input matInput type="text"  placeholder="Preço com desconto" formControlName="precoDesconto" 
+                    <input matInput type="text" placeholder="Preço com desconto" formControlName="precoDesconto" 
                         (keyup)="checkPrecoValido()" />
                     <div>
                         <span class="hasError">{{ hasError(novaOfertaForm, 'precoDesconto') }}</span>

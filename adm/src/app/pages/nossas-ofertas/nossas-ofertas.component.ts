@@ -16,8 +16,6 @@ export class NossasOfertasComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataSource = JSON.parse(window.localStorage.getItem("ofertas-game-tracker"));
-
-    console.log(this.dataSource)
   }
 
   irParaCadastroOfertas(elementId) {

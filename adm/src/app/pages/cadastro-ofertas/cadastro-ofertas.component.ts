@@ -27,16 +27,14 @@ export class CadastroOfertasComponent implements OnInit {
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'bottom';
 
-  initialValue: number = 1;
-
   constructor(private fb: FormBuilder, private activatedRoute: ActivatedRoute, private router: Router, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.novaOfertaForm = this.fb.group({
       id: ['', Validators.required],
       titulo: ['', Validators.required],
-      preco: ['', Validators.required],
-      precoDesconto: ['', Validators.required],
+      preco: ['', [Validators.required, Validators.min(1)]],
+      precoDesconto: ['', [Validators.required, Validators.min(1)]],
       descricao: [''],
       loja: ['', Validators.required]
     });
@@ -83,9 +81,10 @@ export class CadastroOfertasComponent implements OnInit {
 
         case (controls.errors['precoDescontoInvalid'] && (controls.dirty || controls.touched)):
           return 'Desconto deve ser menor que o preço original'
-        
-        case (controls.errors['precoInvalid'] && (controls.dirty || controls.touched)):
+
+        case (controls.errors['min'] && (controls.dirty || controls.touched)):
           return 'Preço deve ser maior do que zero'
+        
         default:
           break;
       }
@@ -98,8 +97,6 @@ export class CadastroOfertasComponent implements OnInit {
 
     if(ofertasFiltrado.length > 0) {
       this.novaOfertaForm.get('id').setErrors({ idInvalid: true });
-    } else {
-      this.novaOfertaForm.get('id').setErrors(null);
     }
   }
 
@@ -110,8 +107,7 @@ export class CadastroOfertasComponent implements OnInit {
     if(precoDesconto > preco) {
       this.novaOfertaForm.get('precoDesconto').setErrors({ precoDescontoInvalid: true });
     } else {
-      this.novaOfertaForm.get('precoDesconto').setErrors(null);
-      if(Number.isNaN(precoDesconto) || Number.isNaN(preco)) { 
+      if(Number.isNaN(precoDesconto)) { 
         this.novaOfertaForm.get('precoDesconto').setValue('');
       }
     }
