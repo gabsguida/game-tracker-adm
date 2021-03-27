@@ -7,6 +7,9 @@
                 <mat-form-field appearance="outline">
                     <mat-label>ID</mat-label>
                     <input matInput placeholder="ID do jogo" type="number" formControlName="id" (keyup)="checkIdUnico()" />
+                    <div>
+                        <span class="hasError">{{ hasError(novaOfertaForm, 'id') }}</span>
+                    </div>
                 </mat-form-field>
             </div>
 
@@ -14,21 +17,31 @@
             <div class="campos">
                 <mat-form-field appearance="outline">
                     <mat-label>Título</mat-label>
-                    <input matInput placeholder="Título do jogo" formControlName="titulo" />
+                    <input matInput type="text" placeholder="Título do jogo" formControlName="titulo" />
+                    <div>
+                        <span class="hasError">{{ hasError(novaOfertaForm, 'titulo') }}</span>
+                    </div>
                 </mat-form-field>
             </div>
 
             <div class="campos">
                 <mat-form-field appearance="outline">
                     <mat-label>Preço</mat-label>
-                    <input matInput placeholder="Preço do jogo" formControlName="preco" />
+                    <input matInput type="text" placeholder="Preço do jogo" formControlName="preco"  />
+                    <div>
+                        <span class="hasError">{{ hasError(novaOfertaForm, 'preco') }}</span>
+                    </div>
                 </mat-form-field>
             </div>
 
             <div class="campos">
                 <mat-form-field appearance="outline">
                     <mat-label>Preço com desconto</mat-label>
-                    <input matInput placeholder="Preço com desconto" formControlName="precoDesconto" />
+                    <input matInput type="text"  placeholder="Preço com desconto" formControlName="precoDesconto" 
+                        (keyup)="checkPrecoValido()" />
+                    <div>
+                        <span class="hasError">{{ hasError(novaOfertaForm, 'precoDesconto') }}</span>
+                    </div>
                 </mat-form-field>
             </div>
 
@@ -39,6 +52,9 @@
                         <mat-option *ngFor="let loja of lojas" [value]="loja.nome">
                             {{loja.nome}}</mat-option>
                     </mat-select>
+                    <div>
+                        <span class="hasError">{{ hasError(novaOfertaForm, 'loja') }}</span>
+                    </div>
                 </mat-form-field>
             </div>
 
@@ -46,7 +62,7 @@
             <div class="campos">
                 <mat-form-field appearance="outline">
                     <mat-label>Descrição</mat-label>
-                    <input matInput placeholder="Descrição" formControlName="descricao" />
+                    <input matInput type="text" placeholder="Descrição" formControlName="descricao" />
                 </mat-form-field>
             </div>
 
