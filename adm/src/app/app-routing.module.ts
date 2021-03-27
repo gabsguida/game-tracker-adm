@@ -4,8 +4,9 @@ import { CadastroOfertasComponent } from './pages/cadastro-ofertas/cadastro-ofer
 import { NossasOfertasComponent } from './pages/nossas-ofertas/nossas-ofertas.component';
 
 const routes: Routes = [
-  { path: 'cadastroofertas/:id', component: CadastroOfertasComponent },
-  { path: 'nossasofertas', component: NossasOfertasComponent }
+  { path: '', redirectTo: 'nossasofertas', pathMatch: 'full'},
+  { path: 'nossasofertas', component:  NossasOfertasComponent },
+  { path: 'cadastroofertas/:id', component: CadastroOfertasComponent }
 ];
 
 @NgModule({
